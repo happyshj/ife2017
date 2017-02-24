@@ -1,0 +1,189 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: gray;
+    font-family: "微软雅黑";
+    min-width: 740px;
+}
+nav{
+    background-color: #2f4f4f;
+    width: 100%;
+    height: 70px;
+    overflow: hidden;
+}
+nav img{
+    height: 50px;
+    width: 50px;
+    float: left;
+    border-radius: 50px;
+    margin-left: 2%;
+    margin-top: 10px;
+}
+nav ul{
+    margin-right: 2%;
+}
+nav ul li{
+    line-height: 70px;
+    height: 70px;
+    float: right;
+    width: 100px;
+    margin-left: 20px;
+    text-align: center;
+}
+nav ul li a{
+    color: #ffffff;
+    text-decoration: none;
+}
+nav ul li a:hover{
+    color: #eeeeee;
+}
+@media (max-width:680px){
+    nav ul{
+        display: none;
+    }
+}
+.container{
+    margin-right: 480px;
+}
+.article1,.article2,.article3,.article4,aside{
+    margin: 20px;
+    background-color: #ffffff;
+    padding: 30px 20px;
+}
+h3{
+    color: #808080;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+p span{
+    color: #808080;
+    font-size: 14px;
+}
+.p1{
+    font-size: 15px;
+    line-height: 25px;
+    text-indent: 2em;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.article1 img,.article2 img{
+    width: 120px;
+    height: 150px;
+}
+.article2 ul li{
+    list-style-type: none;
+    margin-top: 10px;
+}
+.article3 figure{
+    border: 1px solid #d3d3d3;
+    width: 120px;
+    height: 150px;
+    margin-top: 20px;
+    margin-left: 20px;
+    display: inline-block;
+}
+.article3 figure figcaption{
+    text-align: center;
+    margin: 10px auto;
+    font-size: 14px;
+}
+.article3 figure img{
+    width: 100px;
+    height: 100px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.article4 ol li{
+    margin-left: 50px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.article4 table{
+    width: 94%;
+    margin-left: 5px;
+    margin-right: 5px;
+    border-collapse: collapse;
+
+}
+.article4 table td,.article4 table th{
+    border: 1px solid #808080;
+    height: 25px;
+    font-size: 14px;
+}
+.article4 table th{
+    background-color: #000000;
+    color: #ffffff;
+    text-align: left;
+}
+.article4 table tfoot{
+    background-color: #808080;
+}
+aside{
+    margin: 20px;
+    background-color: #ffffff;
+    width: 400px;
+    float: right;
+}
+aside h3{
+    color: #000000;
+}
+aside form{
+    font-size: 14px;
+}
+.mail{
+    margin-left: 20px;
+}
+.text{
+    color: #808080;
+    font-size: 14px;
+    margin-left: 124px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+.password{
+    margin-left: 48px;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+.password1{
+    margin-left: 20px;
+    margin-top: 10px;
+}
+.sex,.city,.love{
+    margin-left: 90px;
+    margin-bottom: 10px;
+}
+.textarea{
+    margin-left: 60px;
+    margin-bottom: 10px;
+}
+.textarea .label{
+    float: left;
+    margin-right: 8px;
+}
+.textarea textarea{
+    width: 250px;
+    height: 100px;
+    font-size: 18px;
+}
+button{
+    width: 360px;
+    height: 40px;
+    margin-left: 20px;
+    background-color: #0000ff;
+    border: 1px solid #0000ff;
+    border-radius: 10px;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+}
+footer{
+    background-color: #000000;
+    width: 100%;
+    height: 50px;
+    color: #ffffff;
+    text-align: center;
+    line-height: 50px;
+}
