@@ -1,0 +1,34 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+.div1{
+    width: 400px;
+    height: 200px;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    margin: -100px 0 0 -200px;
+    background-color: #ccc;
+}
+.cir1,.cir2{
+    background-color: #fc0;
+    width: 50px;
+    height: 50px;
+}
+.cir1{
+    position: absolute;
+    border-radius: 0 0 50px 0;
+    -moz-border-radius: 0 0 50px 0;
+    -webkit-border-radius: 0 0 50px 0;
+}
+.cir2{
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    border-radius: 50px 0 0 0;
+    -moz-border-radius: 50px 0 0 0;
+    -webkit-border-radius: 50px 0 0 0;
+}
