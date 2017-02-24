@@ -1,0 +1,183 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: #eeeeee;
+    font-family: "微软雅黑";
+}
+nav{
+    background-color: #2f4f4f;
+    width: 100%;
+    height: 70px;
+    overflow: hidden;
+}
+nav img{
+    margin-left: 2%;
+    margin-top: 10px;
+    height: 50px;
+    width: 50px;
+    float: left;
+}
+nav ul{
+    margin-right: 2%;
+}
+nav ul li{
+    text-align: center;
+    height: 70px;
+    line-height: 70px;
+    width: 100px;
+    margin-left: 20px;
+    float: right;
+}
+nav ul li a{
+    color: #ffffff;
+    text-decoration: none;
+}
+nav ul li a:hover{
+    color: #eeeeee;
+}
+@media (max-width:680px){
+    nav ul{
+        display: none;
+    }
+}
+.article1,.article2,.article3,.article4,aside{
+    margin: 20px auto;
+    background-color: white;
+    width: 94%;
+    padding: 30px 20px;
+}
+h3{
+    color: grey;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+p span{
+    color: grey;
+    font-size: 14px;
+}
+.p1{
+    font-size: 15px;
+    line-height: 25px;
+    text-indent: 2em;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.article1 img,.article2 img{
+    width: 400px;
+    height: 300px;
+}
+.article2 ul li{
+    list-style-type: none;
+    margin-top: 10px;
+}
+.article3 figure{
+    border: 1px solid lightgray;
+    width: 120px;
+    height: 150px;
+    margin-top: 20px;
+    margin-left: 40px;
+}
+.article3 figure figcaption{
+    text-align: center;
+    margin: 10px auto;
+    font-size: 14px;
+}
+.article3 figure img{
+    width: 100px;
+    height: 100px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.article4 ol li{
+    margin-left: 50px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.article4 table{
+    width: 94%;
+    margin-left: 5px;
+    margin-right: 5px;
+    border-collapse: collapse;
+
+}
+.article4 table td,.article4 table th{
+    border: 1px solid gray;
+    height: 25px;
+    font-size: 14px;
+}
+.article4 table th{
+    background-color: black;
+    color: white;
+    text-align: left;
+}
+.article4 table tfoot{
+    background-color: gray;
+}
+aside{
+    margin: 30px 6% 20px 2%;
+    background-color: white;
+    width: 92%;
+}
+aside h3{
+    color: black;
+}
+aside form{
+    font-size: 14px;
+}
+.mail{
+    margin-left: 300px;
+}
+.text{
+    color: gray;
+    font-size: 14px;
+    margin-left: 405px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+.password{
+    margin-left: 329px;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+.password1{
+    margin-left: 300px;
+    margin-top: 10px;
+}
+.sex,.city,.love{
+    margin-left: 370px;
+    margin-bottom: 10px;
+}
+.textarea{
+    margin-left: 342px;
+    margin-bottom: 10px;
+}
+.textarea .label{
+    float: left;
+    margin-right: 8px;
+}
+.textarea textarea{
+    width: 80%;
+    height: 100px;
+    font-size: 18px;
+}
+button{
+    width: 98%;
+    height: 40px;
+    margin-left: 1%;
+    background-color: blue;
+    border: 1px solid blue;
+    border-radius: 10px;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+}
+footer{
+    background-color: black;
+    width: 100%;
+    height: 50px;
+    color: white;
+    text-align: center;
+    line-height: 50px;
+}
