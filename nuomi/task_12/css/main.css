@@ -9,9 +9,9 @@
     margin: -40px 0 0 -40px;
     width: 80px;
     height: 80px;
-    border-radius: 80px;
-    border-right: 2px solid #d9534f;
-    border-bottom: 2px solid #d9534f;
+    border-radius: 50%;
+    border: 2px solid #d9534f;
+    border-top-color: #ffffff;
     animation: an1 1s linear infinite;
     -webkit-animation: an1 1s linear infinite;
     -o-animation: an1 1s linear infinite;
