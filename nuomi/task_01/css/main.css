@@ -116,11 +116,15 @@
  .main:hover #masked{
     -webkit-animation: masked-animation 3s infinite cubic-bezier(0,0,0.25,1);
     -o-animation: masked-animation 3s infinite cubic-bezier(0,0,0.25,1);
+	-ms-animation: masked-animation 3s infinite cubic-bezier(0,0,0.25,1);
+	-moz-animation: masked-animation 3s infinite cubic-bezier(0,0,0.25,1);
     animation: masked-animation 3s infinite cubic-bezier(0,0,0.25,1);
 }
  .main:hover .text-last{
      -webkit-animation: masked1-animation 5s 1 linear;
      -o-animation: masked1-animation 5s 1 linear;
+	 -ms-animation: masked1-animation 5s 1 linear;
+	 -moz-animation: masked1-animation 5s 1 linear;
      animation: masked1-animation 5s 1 linear;
  }
 @-webkit-keyframes masked-animation{
@@ -139,6 +143,22 @@
         background-position: -100% 0;
     }
 }
+@-ms-keyframes masked-animation {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: -100% 0;
+    }
+}
+@-moz-keyframes masked-animation {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: -100% 0;
+    }
+}
 @keyframes masked-animation {
     0% {
         background-position: 0 0;
@@ -148,6 +168,98 @@
     }
 }
 @-webkit-keyframes masked1-animation{
+    0%{
+        color: #5cb85c;
+    }
+    5%{
+        color: #025aa5;
+    }
+    10%{
+        color: #5cb85c;
+    }
+    15%{
+        color: #025aa5;
+    }
+    45%{
+        color: #5cb85c;
+    }
+    75%{
+        color: #025aa5;
+    }
+    100%{
+        color: #5cb85c;
+    }
+}
+@-moz-keyframes masked1-animation{
+    0%{
+        color: #5cb85c;
+    }
+    5%{
+        color: #025aa5;
+    }
+    10%{
+        color: #5cb85c;
+    }
+    15%{
+        color: #025aa5;
+    }
+    45%{
+        color: #5cb85c;
+    }
+    75%{
+        color: #025aa5;
+    }
+    100%{
+        color: #5cb85c;
+    }
+}
+@-ms-keyframes masked1-animation{
+    0%{
+        color: #5cb85c;
+    }
+    5%{
+        color: #025aa5;
+    }
+    10%{
+        color: #5cb85c;
+    }
+    15%{
+        color: #025aa5;
+    }
+    45%{
+        color: #5cb85c;
+    }
+    75%{
+        color: #025aa5;
+    }
+    100%{
+        color: #5cb85c;
+    }
+}
+@-o-keyframes masked1-animation{
+    0%{
+        color: #5cb85c;
+    }
+    5%{
+        color: #025aa5;
+    }
+    10%{
+        color: #5cb85c;
+    }
+    15%{
+        color: #025aa5;
+    }
+    45%{
+        color: #5cb85c;
+    }
+    75%{
+        color: #025aa5;
+    }
+    100%{
+        color: #5cb85c;
+    }
+}
+@keyframes masked1-animation{
     0%{
         color: #5cb85c;
     }
