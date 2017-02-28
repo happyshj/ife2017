@@ -1,0 +1,81 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.container{
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -100px 0 0 -100px;
+    border: 1px solid #2aabd2;
+    text-align: center;
+}
+.custom{
+    margin-top: 20px;
+}
+input{
+    display: none;
+}
+.label{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #aaaaaa;
+}
+.radio + .label{
+    border-radius: 50%;
+}
+.radio:checked + label,
+.checkbox:checked + label{
+    border: 2px solid #d9534f;
+    font-weight: bold;
+    position: relative;
+}
+.radio:checked + label:after,
+.checkbox:checked + label:after{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -5px 0 0 -5px;
+    content: "";
+
+}
+.radio:checked + label:after{
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #d9534f;
+}
+.checkbox:checked + label:after{
+    width: 6px;
+    height: 8px;
+    margin-left: -4px;
+    border-top: 2px solid #d9534f;
+    border-left: 2px solid #d9534f;
+
+    -webkit-transform: rotate(-135deg);
+    -moz-transform: rotate(-135deg);
+    -ms-transform: rotate(-135deg);
+    -o-transform: rotate(-135deg);
+    transform: rotate(-135deg);
+}
+.label1{
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background-image: url("../img/sprite.png");
+}
+.radio1 + .label1{
+    background-position: 0 0;
+}
+.radio1:checked + .label1{
+    background-position: 24px 0;
+}
+.checkbox1 + .label1{
+    background-position: 0 24px;
+}
+.checkbox1:checked + .label1{
+    background-position: 25px 24px;
+}
