@@ -1,0 +1,433 @@
+/* 网格布局 */
+*{
+    margin: 0;
+    padding: 0;
+}
+ul{
+    list-style-type: none;
+}
+.container{
+    border: 1px solid #999999;
+    width: 98%;
+    margin: 20px auto;
+    padding: 15px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    max-width: 500px;
+}
+[class *= col-] {
+    float: left;
+}
+.row:after{
+    content: "";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+.row{
+    zoom: 1;
+}
+.col-xs-1{
+    width: 8.33%;
+}
+.col-xs-2{
+    width: 16.66%;
+}
+.col-xs-3{
+    width: 25%;
+}
+.col-xs-4{
+    width: 33.33%;
+}
+.col-xs-5{
+    width: 41.66%;
+}
+.col-xs-6{
+    width: 50%;
+}
+.col-xs-8{
+    width: 66.66%;
+}
+.col-xs-12{
+    width: 100%;
+}
+.push-none{
+    background-color: #ffffff;
+    height: 20px;
+}
+
+@media (max-width: 380px) {
+    .col-12{
+        width: 100%;
+    }
+    .container-img{
+        display: none;
+    }
+}
+/* 控制层布局 */
+.container-img img{
+    height: 120px;
+    width: 120px;
+    border-radius: 50%;
+}
+.music-name{
+    font-size: 18px;
+    font-weight: 500;
+    color: #000000;
+    font-family: "微软雅黑";
+    white-space: nowrap;
+    overflow: hidden;
+}
+.music-name span{
+    display: inline-block;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.music-from{
+    font-size: 14px;
+    color: #888888;
+    padding: 5px 0;
+}
+.music-time{
+    font-size: 12px;
+    color: #aaaaaa;
+}
+.music-volume-icon{
+    height: 20px;
+    width: 20px;
+}
+.volume-down{
+    background: url("../img/volume-down.png") no-repeat;
+    background-size: contain;
+}
+.volume-off{
+    background: url("../img/volume-off.png") no-repeat;
+    background-size: contain;
+}
+.volume-up{
+    background: url("../img/volume-up.png") no-repeat;
+    background-size: contain;
+}
+.music-volume-bk{
+    height: 2px;
+    margin-top: 9px;
+    background-color: #eeeeee;
+    position: relative;
+}
+.music-volume-text{
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 2px;
+    background-color: #2aabd2;
+
+    -webkit-transition: width .5s;
+    -moz-transition: width .5s;
+    -ms-transition: width .5s;
+    -o-transition: width .5s;
+    transition: width .5s;
+}
+.volume-drag{
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background-color: #2aabd2;
+    border-radius: 50%;
+    top: -2px;
+    right: -2px;
+}
+#music-mode,
+.play-next,
+.play-prev,
+.music-list,
+.music-prev,
+.music-next,
+.music-play,
+.music-pause{
+    height: 20px;
+}
+.play-random{
+    background: url("../img/play-random.png") no-repeat;
+    background-size: contain;
+}
+.play-circle{
+    background: url("../img/play-circle.png") no-repeat;
+    background-size: contain;
+}
+.play-single{
+    background: url("../img/play-single.png") no-repeat;
+    background-size: contain;
+}
+.play-prev{
+    background: url("../img/play-next.png") no-repeat;
+    background-size: contain;
+}
+.play-next{
+    background: url("../img/play-prev.png") no-repeat;
+    background-size: contain;
+}
+.sidebar{
+    height: 2px;
+    background: #eeeeee;
+    margin: 5px 0 15px 0;
+    position: relative;
+}
+.music-sidebar{
+    height: 2px ;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #2aabd2;
+    -webkit-transition: width .5s;
+    -moz-transition: width .5s;
+    -ms-transition: width .5s;
+    -o-transition: width .5s;
+    transition: width .5s;
+}
+.sidebar-drag{
+    display: none;
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background-color: #2aabd2;
+    border-radius: 50%;
+    top: -2px;
+    right: -2px;
+}
+.sidebar:hover .sidebar-drag{
+    display: block;
+}
+.music-sidebar:hover .sidebar-drag{
+    display: block;
+}
+.music-list{
+    background: url("../img/music-list.png") no-repeat;
+    background-size: contain;
+}
+.music-prev{
+    background: url("../img/music-prev.png") no-repeat;
+    background-size: contain;
+}
+.music-next{
+    background: url("../img/music-next.png") no-repeat;
+    background-size: contain;
+}
+.music-play{
+    background: url("../img/music-pause.png") no-repeat;
+    background-size: contain;
+}
+.music-pause{
+    background: url("../img/music-play.png") no-repeat;
+    background-size: contain;
+}
+.list{
+    display: none;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    position: absolute;
+    width: 240px;
+    height: 280px;
+    background-color: #FFFFFF;
+    border: 1px solid #aaaaaa;
+    -webkit-box-shadow: 0 0 3px rgba(0,0,0,.5);
+    -moz-box-shadow:  0 0 3px rgba(0,0,0,.5);
+    box-shadow:  0 0 3px rgba(0,0,0,.5);
+    z-index: 10001;
+}
+.list-wrap{
+    width: 100%;
+    height: 180px;
+    margin-top: 50px;
+    position: relative;
+}
+.list-content{
+    height: 100%;
+    overflow: auto;
+}
+.list-scrollBar{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 17px;
+    height: 100%;
+    background-color: #ffffff;
+}
+.scroll-slider{
+    position: absolute;
+    top: 0;
+    left: 1px;
+    width: 6px;
+    height: 0;
+}
+.list .to{
+    position: absolute;
+    height: 50px;
+    width: 236px;
+    text-align: center;
+    background-color: #FFFFFF;
+    left: 0;
+}
+.list .to-bottom{
+    bottom: 0;
+}
+.list .to span{
+    display: inline-block;
+}
+.list .to-top{
+    top: 0;
+}
+.list .to-top span{
+    width: 30px;
+    height: 30px;
+    margin-top: 5px;
+    background: url("../img/to_top.png") no-repeat;
+    background-size: contain;
+}
+.list .to-bottom span{
+    width: 15px;
+    height: 15px;
+    margin-top: 12px;
+    background: url("../img/to_bottom.png") no-repeat;
+    background-size: contain;
+}
+.list li{
+    white-space: nowrap;
+    margin-left: 17px;
+    width: 200px;
+    height: 30px;
+    line-height: 30px;
+    text-align: left;
+    padding: 0 5px;
+    font-size: 14px;
+    font-family: "微软雅黑";
+    color: #a1a1c1;
+}
+.list li:hover{
+    background-color: #0479CA;
+    color: #FFFFFF;
+}
+.list-mark{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    opacity: .1;
+    background-color: #FFFFFF;
+    z-index: 9999;
+    display: none;
+}
+.container-img{
+    height: 120px;
+    width: 120px;
+    margin: 0 auto;
+    border-radius: 50%;
+
+    -webkit-animation: an1 2s infinite linear;
+    -o-animation: an1 2s infinite linear;
+    animation: an1 2s infinite linear;
+}
+@keyframes an1 {
+    0%{
+        transform: rotate(0deg);
+    }
+    20%{
+        transform: rotate(72deg);
+    }
+    40%{
+        transform: rotate(144deg);
+    }
+    60%{
+        transform: rotate(216deg);
+    }
+    80%{
+        transform: rotate(288deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+@-webkit-keyframes an1 {
+    0%{
+        -webkit-transform: rotate(0deg);
+    }
+    20%{
+        -webkit-transform: rotate(72deg);
+    }
+    40%{
+        -webkit-transform: rotate(144deg);
+    }
+    60%{
+        -webkit-transform: rotate(216deg);
+    }
+    80%{
+        -webkit-transform: rotate(288deg);
+    }
+    100%{
+        -webkit-transform: rotate(360deg);
+    }
+}
+@-moz-keyframes an1 {
+    0%{
+        -moz-transform: rotate(0deg);
+    }
+    20%{
+        -moz-transform: rotate(72deg);
+    }
+    40%{
+        -moz-transform: rotate(144deg);
+    }
+    60%{
+        -moz-transform: rotate(216deg);
+    }
+    80%{
+        -moz-transform: rotate(288deg);
+    }
+    100%{
+        -moz-transform: rotate(360deg);
+    }
+}
+@-ms-keyframes an1 {
+    0%{
+        -ms-transform: rotate(0deg);
+    }
+    20%{
+        -ms-transform: rotate(72deg);
+    }
+    40%{
+        -ms-transform: rotate(144deg);
+    }
+    60%{
+        -ms-transform: rotate(216deg);
+    }
+    80%{
+        -ms-transform: rotate(288deg);
+    }
+    100%{
+        -ms-transform: rotate(360deg);
+    }
+}
+@-o-keyframes an1 {
+    0%{
+        -o-transform: rotate(0deg);
+    }
+    20%{
+        -o-transform: rotate(72deg);
+    }
+    40%{
+        -o-transform: rotate(144deg);
+    }
+    60%{
+        -o-transform: rotate(216deg);
+    }
+    80%{
+        -o-transform: rotate(288deg);
+    }
+    100%{
+        -o-transform: rotate(360deg);
+    }
+}

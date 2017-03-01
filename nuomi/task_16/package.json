@@ -1,0 +1,64 @@
+{
+  "music_ifo": [
+    {
+      "name": "刚好遇见你",
+      "from": "李玉刚",
+      "src1": "music/1.mp3",
+      "img": "img/music-img/img1.png"
+    },
+    {
+      "name": "一百种孤独的理由",
+      "from": "郭美美",
+      "src1": "music/2.mp3",
+      "img": "img/music-img/img2.png"
+    },
+    {
+      "name": "夏夜星空海",
+      "from": "张信哲",
+      "src1": "music/3.mp3",
+      "img": "img/music-img/img3.png"
+    },
+    {
+      "name": "美女与野兽",
+      "from": "田馥甄,井柏然",
+      "src1": "music/4.mp3",
+      "img": "img/music-img/img4.png"
+    },
+    {
+      "name": "独角戏",
+      "from": "许茹芸",
+      "src1": "music/5.mp3",
+      "img": "img/music-img/img5.png"
+    },
+    {
+      "name": "夜空中最亮的星",
+      "from": "邓紫棋",
+      "src1": "music/6.mp3",
+      "img": "img/music-img/img6.png"
+    },
+    {
+      "name": "我好想在哪见过你",
+      "from": "薛之谦",
+      "src1": "music/7.mp3",
+      "img": "img/music-img/img7.png"
+    },
+    {
+      "name": "修今生",
+      "from": "梁佳玉",
+      "src1": "music/8.mp3",
+      "img": "img/music-img/img8.png"
+    },
+    {
+      "name": "绝世高手365个祝福",
+      "from": "华语群星",
+      "src1": "music/9.mp3",
+      "img": "img/music-img/img9.png"
+    },
+    {
+      "name": "丑八怪",
+      "from": "薛之谦",
+      "src1": "music/10.mp3",
+      "img": "img/music-img/img10.png"
+    }
+  ]
+}

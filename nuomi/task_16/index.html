@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>音乐播放器</title>
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <link rel="stylesheet" href="css/main.css" type="text/css">
+</head>
+<body>
+<div class="container">
+    <audio id="audio"></audio>
+    <div class="row">
+        <div class="col-xs-8 col-12 container-control">
+            <div class="row">
+                <div class="col-xs-12 music-name">
+                    <span>音乐</span>
+                    <span>音乐</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 music-from">郭顶</div>
+            </div>
+            <div class="row">
+                <div class="col-xs-2 music-time">-00:00</div>
+                <div class="col-xs-4 music-volume">
+                    <div class="row">
+                        <div class="col-xs-4 music-volume-icon volume-down"></div>
+                        <div class="col-xs-8 music-volume-bk">
+                            <div class="music-volume-text">
+                                <span class="volume-drag"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-1">
+                    <div id="music-mode" class="play-circle"></div>
+                </div>
+                <div class="col-xs-1 push-none"></div>
+                <div class="col-xs-1">
+                    <div class="play-prev"></div>
+                </div>
+                <div class="col-xs-1 push-none"></div>
+                <div class="col-xs-1">
+                    <div class="play-next"></div>
+                </div>
+                <div class="col-xs-1 push-none"></div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 sidebar">
+                    <div class="music-sidebar">
+                        <span class="sidebar-drag"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-1">
+                    <div class="music-list"></div>
+                </div>
+                <div class="col-xs-5 push-none"></div>
+                <div></div>
+                <div class="col-xs-1">
+                    <div class="music-prev"></div>
+                </div>
+                <div class="col-xs-1 push-none"></div>
+                <div class="col-xs-1">
+                    <div class="music-play" id="playorpause"></div>
+                </div>
+                <div class="col-xs-1 push-none"></div>
+                <div class="col-xs-1">
+                    <div class="music-next"></div>
+                </div>
+                <div class="col-xs-1 push-none"></div>
+            </div>
+        </div>
+        <div class="col-xs-4">
+            <div class="container-img">
+                <img src="img/music-img/logo.jpg">
+            </div>
+        </div>
+    </div>
+    <div class="list">
+        <div class="to to-top">
+            <span></span>
+        </div>
+        <div class="list-wrap">
+            <div class="list-content">
+                <ul>
+                    <li>刚好遇见你</li>
+                    <li>一百种孤独的理由</li>
+                    <li>夏夜星空海</li>
+                    <li>美女与野兽</li>
+                    <li>独角戏</li>
+                    <li>夜空中最亮的星</li>
+                    <li>我好想在哪见过你</li>
+                    <li>修今生</li>
+                    <li>绝世高手365个祝福</li>
+                    <li>丑八怪</li>
+                </ul>
+            </div>
+            <div class="list-scrollBar">
+                <div class="scroll-slider"></div>
+            </div>
+        </div>
+        <div class="to to-bottom">
+            <span></span>
+        </div>
+    </div>
+
+</div>
+<div class="list-mark"></div>
+<script src="js/jquery.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
