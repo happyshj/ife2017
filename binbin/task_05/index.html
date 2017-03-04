@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>task_04</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            margin: 5px 0 5px 50px;
+        }
+        input{
+            width: 200px;
+            height: 30px;
+            border: 1px solid #aaa;
+            outline: none;
+        }
+        button{
+            display: inline-block;
+            background: #ffffff;
+            border: 1px solid #aaaaaa;
+            height: 30px;
+            width: 50px;
+            border-radius: 5px;
+            outline: none;
+        }
+        button:nth-child(3){
+            margin-right: 10px;
+        }
+        button:nth-child(5){
+            margin-right: 20px;
+        }
+        #queue{
+            height: 200px;
+            width: 720px;
+            border: 1px solid #aaaaaa;
+        }
+        span{
+            width: 10px;
+            float: left;
+            background: #ff0000;
+            border: 1px solid #a52a2a;
+            -webkit-box-shadow: 0 0 2px #a52a2a;
+            -moz-box-shadow: 0 0 2px #a52a2a;
+            box-shadow: 0 0 2px #a52a2a;
+            margin-left: 2px;
+            cursor: pointer;
+        }
+        span:first-child{
+            margin-left: 0;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <input type="text" />
+    <button id="left-in">左侧入</button>
+    <button id="right-in">右侧入</button>
+    <button id="left-out">左侧出</button>
+    <button id="right-out">右侧出</button>
+    <button id="sort-data">排序</button>
+</div>
+<div id="queue">
+
+</div>
+
+<script>
+    (function () {
+        var input_num = document.getElementsByTagName("input")[0],
+            left_in = document.getElementById("left-in"),
+            right_in = document.getElementById("right-in"),
+            left_out = document.getElementById("left-out"),
+            right_out = document.getElementById("right-out"),
+            queue_div = document.getElementById("queue"),
+            span_num = queue_div.getElementsByTagName("span"),
+            sort_data = document.getElementById("sort-data"),
+            temp_arr = [];
+
+        function isNumber(a) {
+            var re = /^[0-9]+.?[0-9]*$/;
+            if(!re.test(input_num.value)){
+                alert("请输入数字！！！");
+                input_num.value = '';
+                return false;
+            }else {
+                if (input_num.value >= 10 && input_num.value <= 100){
+                    if(queue_div.childElementCount > 60){
+                        alert("队列元素数量已超过60个，不能再添加！！！");
+                        input_num.value = '';
+                        return false;
+                    }
+                    var span_div = document.createElement("span");
+                    var h = input_num.value/100 * 200;
+                    if (a){
+                        queue_div.insertBefore(span_div,queue_div.childNodes[0]);
+                        span_num[0].style.height = h + 'px';
+                        span_num[0].style.marginTop = 200 - h + 'px';
+                    }else {
+                        queue_div.appendChild(span_div);
+                        span_num[span_num.length - 1].style.height = h + 'px';
+                        span_num[span_num.length - 1].style.marginTop = 200 - h + 'px';
+                    }
+                    input_num.value = '';
+                    span_click();
+                    //dataSort();
+                }else {
+                    alert("请输入10~100之间的数！！！");
+                    input_num.value = '';
+                    return false;
+                }
+            }
+        }
+        left_in.onclick = function () {
+            isNumber(true);
+        };
+        right_in.onclick = function () {
+            isNumber(false);
+        };
+
+        function del(n) {
+           del_in(n);
+            span_click();
+           // dataSort();
+        }
+        function del_in(n) {
+            var node_tmp = span_num[n];
+            var value_tmp = parseInt(node_tmp.style.height) / 2;
+            alert(value_tmp);
+            queue_div.removeChild(node_tmp);
+        }
+        left_out.onclick = function () {
+           del(0);
+        };
+        right_out.onclick = function () {
+            del(span_num.length - 1);
+        };
+        function span_click() {
+            for(var i = 0; i < queue_div.childElementCount; i++){
+                (function (x) {
+                    span_num[x].onclick = function () {
+                        del_in(x);
+                    }
+                })(i)
+            }
+        }
+
+        function span_arr() {
+            var data = [];
+            for(var i = 0;i<span_num.length;i++){
+                data[i] = parseInt(span_num[i].style.height)/2;
+            }
+            return data;
+        }
+        function bubbleSort(arr){
+            var len=arr.length,j;
+            var temp;
+            if(len <= 1){
+                return arr;
+            }
+            while(len>0){
+                for(j=0;j<len-1;j++){
+                    if(arr[j]>arr[j+1]){
+                        temp=arr[j];
+                        arr[j]=arr[j+1];
+                        arr[j+1]=temp;
+                        temp_arr.push(JSON.parse(JSON.stringify(arr)));
+                    }
+                }
+                len--;
+            }
+            return arr;
+        }
+        function render(arr) {
+            queue_div.innerHTML = "";
+            for(var i = 0;i < arr.length;i++){
+                queue_div.innerHTML += "<span></span>";
+                var dataSpan = queue_div.querySelectorAll("span");
+                dataSpan[i].style.height = arr[i] * 2 + 'px';
+                dataSpan[i].style.marginTop = (200 - arr[i] * 2) + 'px';
+            }
+        }
+        function dataSort() {
+            var d = span_arr();
+            d = bubbleSort(d);
+            var timer = setInterval(sort_render,1000);
+            function sort_render() {
+                var s = temp_arr.shift();
+                queue_div.innerHTML = "";
+                if(s !== undefined){
+                    for(var i = 0;i<s.length;i++){
+                        queue_div.innerHTML += "<span></span>";
+                        var dataSpan = queue_div.querySelectorAll("span");
+                        dataSpan[i].style.height = s[i] * 2 + 'px';
+                        dataSpan[i].style.marginTop = (200 - s[i] * 2) + 'px';
+                    }
+                }else {
+                    render(d);
+                    clearInterval(timer);
+                }
+            }
+        }
+        sort_data.onclick = function () {
+            dataSort();
+        }
+    })()
+</script>
+</body>
+</html>
