@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>task_06</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            margin: 5px 0 5px 50px;
+        }
+        textarea{
+            width: 200px;
+            height: 300px;
+            vertical-align: bottom;
+            outline: none;
+            font-size: 16px;
+            padding: 5px;
+        }
+        input{
+            width: 200px;
+            height: 30px;
+            border: 1px solid #aaa;
+            outline: none;
+        }
+        button{
+            display: inline-block;
+            background: #ffffff;
+            border: 1px solid #aaaaaa;
+            height: 30px;
+            width: 50px;
+            border-radius: 5px;
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <textarea id="input-text">
+       
+    </textarea>
+    <input type="text" id="query-text"/>
+    <button id="btn-query">查询</button>
+</div>
+<script>
+    (function () {
+        var input_text = document.getElementById("input-text"),
+            query_text = document.getElementById("query-text"),
+            btn_query = document.getElementById("btn-query");
+        var arr = [];
+        btn_query.onclick = function () {
+            var keyWord = query_text.value;
+            var t = input_text.value.toString();
+            console.log("keyword:"+keyWord);
+            console.log("t:"+t);
+            var a = t.match(new RegExp(keyWord));
+            if(a == null){
+                alert("没有匹配项！！！");
+            }else {
+                input_text.value = "";
+                var str = t.split(keyWord)[0]+keyWord.fontcolor("#ff0000")+t.split(keyWord)[1];
+                var span = document.createElement("span");
+                span.innerHTML = str;
+                input_text.appendChild(span)
+
+            }
+        }
+
+    })()
+</script>
+</body>
+</html>
