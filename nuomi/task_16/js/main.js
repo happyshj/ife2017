@@ -105,6 +105,11 @@
         }
     }
 
+    setInterval(function () {
+        var a = container_img.css('transform')
+        console.log(a)
+    },1000)
+
     function play_timer() {
         container_img.css({
             "animation-iteration-count": "infinite"
@@ -409,9 +414,6 @@
     });
 
     // 点击列表音乐播放
-    console.log(list)
-    console.log(list_ul)
-    console.log()
     list_li.click(function () {
         currentIndex = $(this).index();
         getData();
