@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>task_08</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .container{
+            margin: 20px 10px;
+        }
+        .container div{
+            border: 1px solid #000;
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 5px 10px;
+            margin: 2px;
+        }
+        .container > div > div > div > div > div{
+            height: 30px;
+        }
+        .container > div > div > div > div{
+            height: 50px;
+        }
+        .container > div > div > div{
+            height: 70px;
+        }
+        .container > div > div{
+            height: 90px;
+        }
+        .btn-container{
+            margin: 20px 10px;
+            text-align: center;
+        }
+        input{
+            display: block;
+            margin: 20px auto;
+            width: 300px;
+            height: 30px;
+            outline: none;
+            font-size: 14px;
+        }
+        button{
+            font-size: 14px;
+            margin-right: 20px;
+            width: 100px;
+            height: 50px;
+            outline: none;
+            background-color: #aaaaaa;
+            color: #ffffff;
+            border: 1px solid #000000;
+            cursor: pointer;
+        }
+        button:last-child{
+            margin-right: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="tree">ab
+            <div>cd
+                <div>ee
+                    <div>fg</div>
+                    <div>xe</div>
+                    <div>km</div>
+                    <div>hy</div>
+                </div>
+                <div>uj
+                </div>
+                <div>fr
+                    <div>by</div>
+                    <div>gy</div>
+                </div>
+            </div>
+            <div>ji
+                <div>dr
+                    <div>fs</div>
+                    <div>xe</div>
+                    <div>da</div>
+                </div>
+                <div>kl
+                    <div>nm
+                        <div>ed</div>
+                    </div>
+                    <div>vg</div>
+                </div>
+            </div>
+            <div>ee
+            </div>
+        </div>
+    </div>
+    <div class="btn-container">
+        <input type="text" />
+        <button id="btn-prev">先序遍历</button>
+        <button id="btn-next">后序遍历</button>
+        <input type="text" />
+        <button id="btn-del">删除</button>
+        <button id="btn-add">添加</button>
+    </div>
+
+<script>
+    (function () {
+        var node_tree = document.getElementsByClassName("tree")[0],
+            btn_prev = document.getElementById("btn-prev"),
+            btn_next = document.getElementById("btn-next"),
+            input_text = document.getElementsByTagName("input")[0],
+            btn_del = document.getElementById("btn-del"),
+            btn_add = document.getElementById("btn-add"),
+            add_input = document.getElementsByTagName("input")[1],
+            div_click = document.getElementsByClassName("container")[0].getElementsByTagName("div");
+        var arr = [],
+            last;
+
+        for(var i = 0;i < div_click.length;i++){
+            (function (i) {
+                div_click[i].onclick = function (e) {
+                    if(e && e.stopPropagation()){
+                        e.stopPropagation();
+                    }else {
+                        window.event.cancelBubble = true;
+                    }
+                    for(var m = 0;m < div_click.length;m++){
+                        div_click[m].style.backgroundColor = "#ffffff"
+                    }
+                    div_click[i].style.backgroundColor = "#0000ff";
+                    for(var j = 0;j < div_click[i].childElementCount; j++){
+                        div_click[i].children[j].style.backgroundColor = "#ffffff";
+                    }
+                    btn_del.onclick = function () {
+                        div_click[i].parentNode.removeChild(div_click[i]);
+                    };
+                    btn_add.onclick = function () {
+                        var add_div = document.createElement("div");
+                        var div_text = document.createTextNode(add_input.value);
+                        add_div.appendChild(div_text);
+
+                        div_click[i].appendChild(add_div);
+                        for(var j = 0;j < div_click[i].childElementCount; j++){
+                            div_click[i].children[j].style.backgroundColor = "#ffffff";
+                        }
+                    };
+                }
+            })(i)
+        }
+
+        btn_prev.onclick = function () {
+                init();
+                preOrder(node_tree);
+                showWay();
+        };
+        btn_next.onclick = function () {
+                init();
+                postOrder(node_tree);
+                showWay();
+        };
+
+
+
+        // 前序遍历
+        function preOrder(node) {
+            if(node){
+                arr.push(node);
+                for(var i = 0;i < node.children.length;i++){
+                    preOrder(node.children[i]);
+                }
+            }
+        }
+
+        // 后序遍历
+        function postOrder(node) {
+            if(node){
+                for(var i = 0;i < node.children.length;i++){
+                    postOrder(node.children[i]);
+                }
+                arr.push(node);
+            }
+        }
+
+        function showWay() {
+            var timer = setInterval(query_node,1000);
+            function query_node() {
+                var node = arr.shift();
+                if (node !== undefined){
+                    if(last){
+                            last.style.backgroundColor = "#ffffff";
+                        }
+                    node.style.backgroundColor = "#0000ff";
+                    for(var j = 0;j < node.childElementCount; j++){
+                            node.children[j].style.backgroundColor = "#ffffff";
+                        }
+                    last = node;
+                    var str = node.firstChild.textContent.toString();
+                    if (str.match(new RegExp(input_text.value.toString()))){
+                        alert("节点已找到！！！");
+                        arr = [];
+                        clearInterval(timer);
+                    }
+                }else {
+                    alert("未找到要查询的节点 ！！！");
+                    arr = [];
+                    clearInterval(timer);
+                }
+            }
+        }
+
+        function init() {
+            arr = [];
+            if(last){
+                last.style.backgroundColor = "#ffffff";
+            }
+
+        }
+    })()
+</script>
+</body>
+</html>
