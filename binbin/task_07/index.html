@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>task_07</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .container{
+            margin: 20px 10px;
+        }
+        .tree,.sub-tree{
+            border: 1px solid #000;
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 10px;
+        }
+        .left-tree{
+            margin-right: 5px;
+        }
+        .node{
+            width: 50px;
+        }
+        .btn-container{
+            margin: 20px 10px;
+            text-align: center;
+        }
+        button{
+            font-size: 14px;
+            margin-right: 20px;
+            width: 100px;
+            height: 50px;
+            outline: none;
+            background-color: #aaaaaa;
+            color: #ffffff;
+            border: 1px solid #000000;
+            cursor: pointer;
+        }
+        @media (max-width:780px) {
+            .tree > .sub-tree:last-child{
+                margin-top: 10px;
+            }
+        }
+        @media (max-width: 430px) {
+            .tree > .sub-tree > .sub-tree:last-child{
+                margin-top: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="tree">
+            <div class="sub-tree left-tree">
+                <div class="sub-tree left-tree">
+                    <div class="sub-tree left-tree node"></div>
+                    <div class="sub-tree right-tree node"></div>
+                </div>
+                <div class="sub-tree right-tree">
+                    <div class="sub-tree left-tree node"></div>
+                    <div class="sub-tree right-tree node"></div>
+                </div>
+            </div>
+            <div class="sub-tree right-tree">
+                <div class="sub-tree left-tree">
+                    <div class="sub-tree left-tree node"></div>
+                    <div class="sub-tree right-tree node"></div>
+                </div>
+                <div class="sub-tree right-tree">
+                    <div class="sub-tree left-tree node"></div>
+                    <div class="sub-tree right-tree node"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="btn-container">
+        <button id="btn-prev">前序遍历</button>
+        <button id="btn-center">中序遍历</button>
+        <button id="btn-next">后序遍历</button>
+    </div>
+
+<script>
+    (function () {
+        var node_tree = document.getElementsByClassName("tree")[0],
+            btn_prev = document.getElementById("btn-prev"),
+            btn_center = document.getElementById("btn-center"),
+            btn_next = document.getElementById("btn-next");
+        var arr = [],
+            last,
+            toggle = false;
+        btn_prev.onclick = function () {
+            if(!toggle){
+                toggle = true;
+                init();
+                preOrder(node_tree);
+                showWay();
+            }
+        };
+        btn_center.onclick = function () {
+            if(!toggle){
+                toggle = true;
+                init();
+                inOrder(node_tree);
+                showWay();
+            }
+        };
+        btn_next.onclick = function () {
+            if(!toggle){
+                toggle = true;
+                init();
+                postOrder(node_tree);
+                showWay();
+            }
+        };
+
+        // 前序遍历
+        function preOrder(node) {
+            if(node){
+                arr.push(node);
+                preOrder(node.children[0]);
+                preOrder(node.children[1]);
+            }
+        }
+
+        // 中序遍历
+        function inOrder(node) {
+            if(node){
+                inOrder(node.children[0]);
+                arr.push(node);
+                inOrder(node.children[1]);
+            }
+        }
+
+        // 后序遍历
+        function postOrder(node) {
+            if(node){
+                postOrder(node.children[0]);
+                postOrder(node.children[1]);
+                arr.push(node);
+            }
+        }
+
+        function showWay() {
+            for(var i = 0;i <= arr.length;i++){
+                setTimeout(function (i) {
+                    return function () {
+                        if(i == arr.length - 1){
+                            toggle = false;
+                        }
+                        if(i == arr.length){
+                            alert("遍历结束！！！")
+                        }
+                        if(last){
+                            last.style.backgroundColor = "#ffffff";
+                        }
+                        arr[i].style.backgroundColor = "#0000ff";
+                        for(var j = 0;j < arr[i].childElementCount; j++){
+                            arr[i].children[j].style.backgroundColor = "#ffffff";
+                        }
+                        last = arr[i];
+                    }
+                }(i),i*1000)
+            }
+        }
+
+        function init() {
+            arr = [];
+            if(last){
+                last.style.backgroundColor = "#ffffff";
+            }
+        }
+    })()
+</script>
+</body>
+</html>
