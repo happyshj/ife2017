@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>任务二：表单（二）多个表单项的动态检验</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .container{
+            margin: 50px;
+        }
+        label{
+            display: block;
+            margin-top: 10px;
+        }
+        .msg{
+            display: inline-block;
+            font-size: 16px;
+            text-align: right;
+            width: 70px;
+            margin-right: 10px;
+        }
+        input{
+            outline: none;
+            border: 1px solid #aaaaaa;
+            -webkit-box-shadow: inset 0 0 2px #aaaaaa;
+            -moz-box-shadow: inset 0 0 2px #aaaaaa;
+            box-shadow: inset 0 0 2px #aaaaaa;
+            width: 300px;
+            height: 30px;
+            border-radius: 5px;
+            padding: 0 10px;
+        }
+        input:focus{
+            border: 1px solid #0000ff;
+            -webkit-box-shadow: 0 0 8px rgba(0, 0, 255, .5);
+            -moz-box-shadow: 0 0 8px rgba(0, 0, 255, .5);
+            box-shadow: 0 0 8px rgba(0, 0, 255, .5);
+        }
+        .msg1{
+            display: block;
+            margin: 5px 0 15px 85px;
+        }
+        button{
+            display: block;
+            height: 30px;
+            outline: none;
+            border-radius: 5px;
+            width: 80px;
+            background-color: rgba(0, 91, 204, .8);
+            border: 1px solid #005bff;
+            color: #ffffff;
+            font-family: 微软雅黑;
+            font-size: 14px;
+            margin-left: 324px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <label id="name_lbl">
+        <span class="msg">名称</span>
+        <input type="text">
+        <span class=msg1></span>
+    </label>
+    <label id="password_lbl">
+        <span class="msg">密码</span>
+        <input type="password">
+        <span class="msg1"></span>
+    </label>
+    <label id="conform_lbl">
+        <span class="msg">密码确认</span>
+        <input type="password">
+        <span class="msg1"></span>
+    </label>
+    <label id="email_lbl">
+        <span class="msg">邮箱</span>
+        <input type="text">
+        <span class="msg1"></span>
+    </label>
+    <label id="mobile_lbl">
+        <span class="msg">手机</span>
+        <input type="text">
+        <span class="msg1"></span>
+    </label>
+    <button id="btn">提交</button>
+</div>
+
+<script>
+    (function () {
+        var name_lbl = document.getElementById("name_lbl"),
+            password_lbl = document.getElementById("password_lbl"),
+            conform_lbl = document.getElementById("conform_lbl"),
+            email_lbl = document.getElementById("email_lbl"),
+            mobile_lbl = document.getElementById("mobile_lbl"),
+            btn = document.getElementById("btn");
+        var a,b,c,d,e;
+
+        // 名称验证
+        var name_input = name_lbl.getElementsByTagName("input")[0];
+        name_input.onfocus = function () {
+            focus_event(name_lbl, "必填，长度为4~16个字符");
+        };
+        name_input.onblur = function () {
+            blur_event(name_lbl,"名称不能为空","名称格式正确", "名称长度应为4~16个字符");
+        };
+
+        // 密码验证
+        var password_input = password_lbl.getElementsByTagName("input")[0];
+        password_input.onfocus = function () {
+            focus_event(password_lbl, "必填，长度为4~16个字符");
+        };
+        password_input.onblur = function () {
+            blur_event(password_lbl, "密码不能为空", "密码可用", "密码长度应为4~16个字符");
+        };
+
+        // 密码确认
+        var conform_input = conform_lbl.getElementsByTagName("input")[0];
+        conform_input.onfocus = function () {
+            focus_event(conform_lbl, "再次输入相同密码");
+        };
+        conform_input.onblur = function () {
+            conform_event();
+        };
+
+        // 邮箱验证
+        var email_input = email_lbl.getElementsByTagName("input")[0];
+        email_input.onfocus = function () {
+            focus_event(email_lbl, "请输入邮箱");
+        };
+        email_input.onblur = function () {
+            var myReg = /^[a-zA-Z0-9_-]+@([a-zA-Z0-9]+\.)+(com|cn|net|org)$/;
+            blur_event1(email_lbl,myReg, "邮箱格式正确", "邮箱格式错误", "邮箱不能为空");
+        };
+
+        // 手机号验证
+        var mobile_input = mobile_lbl.getElementsByTagName("input")[0];
+        mobile_input.onfocus = function () {
+            focus_event(mobile_lbl, "请输入手机号码");
+        };
+        mobile_input.onblur = function () {
+            var myReg = /^1(3|4|5|7|8)\d{9}$/;
+            blur_event1(mobile_lbl, myReg, "手机号格式正确", "手机号格式错误", "手机号不能为空");
+        };
+
+        btn.onclick = function () {
+            var a = blur_event(name_lbl,"名称不能为空","名称格式正确", "名称长度应为4~16个字符");
+            var b = blur_event(password_lbl, "密码不能为空", "密码可用", "密码长度应为4~16个字符");
+            var c = conform_event();
+            var myReg = /^[a-zA-Z0-9_-]+@([a-zA-Z0-9]+\.)+(com|cn|net|org)$/;
+            var d = blur_event1(email_lbl,myReg, "邮箱格式正确", "邮箱格式错误", "邮箱不能为空");
+            var myReg1 = /^1(3|4|5|7|8)\d{9}$/;
+            var e = blur_event1(mobile_lbl, myReg1, "手机号格式正确", "手机号格式错误", "手机号不能为空");
+
+            if(a && b && c && d && e){
+                alert("提交成功");
+            }else {
+                alert("提交失败");
+            }
+        };
+
+        function blur_event(cls ,text1, text2, text3) {
+            var str = cls.getElementsByTagName("input")[0].value.toString();
+            var len = gblen(str);
+            var x = true;
+            if(len == 0){
+                cls_set(cls, "#f00", text1);
+                x = false;
+            }else if (len >= 4 && len <= 16){
+                cls_set(cls, "#0f0", text2);
+                x = true;
+            }else {
+                cls_set(cls, "#aa0000", text3);
+                x = false;
+            }
+            return x;
+        }
+        function blur_event1(cls, myReg, txt1, txt2, txt3) {
+            var txt = cls.getElementsByTagName("input")[0];
+            var str = txt.value.toString();
+            var x = true;
+            if (myReg.test(txt.value)){
+                cls_set(cls, "#0f0", txt1);
+                x = true;
+            }else {
+                cls_set(cls, "#aa0000", txt2);
+                x = false;
+            }
+            var len = gblen(str);
+            if(len == 0){
+                cls_set(cls, "#f00", txt3);
+                x = false;
+            }
+            return x;
+        }
+        function conform_event() {
+            var str = conform_input.value.toString();
+            var str1 = password_input.value.toString();
+            var x = true;
+            if(str.match(new RegExp(str1))){
+                cls_set(conform_lbl, "#0f0", "密码输入一致");
+                x = true;
+            }else {
+                cls_set(conform_lbl, "#f00", "密码输入不一致");
+                x = false;
+            }
+            return x;
+        }
+
+        function gblen(str) {
+            var len = 0;
+            for(var i = 0;i < str.length; i++){
+                if (str.charCodeAt(i) > 127 || str.charCodeAt(i) == 94){
+                    len += 2;
+                }else {
+                    len ++;
+                }
+            }
+            return len;
+        }
+        function span_set(cls, color, text) {
+            var span_text = cls.getElementsByClassName("msg1")[0];
+            span_text.innerText = text;
+            span_text.style.color = color;
+        }
+        function cls_set(cls, color, text) {
+            span_set(cls, color, text);
+            var input_text = cls.getElementsByTagName("input")[0];
+            input_text.style.borderColor = color;
+            input_text.style.boxShadow = "inset 0 0 3px" + color;
+            input_text.style.webkitBoxShadow = "inset 0 0 3px" + color;
+            input_text.style.mozBoxShadow = "inset 0 0 3px" + color;
+            input_text.style.oBoxShadow = "inset 0 0 3px" + color;
+        }
+        function focus_style(cls) {
+            var input_text = cls.getElementsByTagName("input")[0];
+            input_text.style.borderColor = "#0000ff";
+            input_text.style.boxShadow = "0 0 8px rgba(0, 0, 255, .5)";
+            input_text.style.webkitBoxShadow = "0 0 8px rgba(0, 0, 255, .5)";
+            input_text.style.mozBoxShadow = "0 0 8px rgba(0, 0, 255, .5)";
+            input_text.style.oBoxShadow = "0 0 8px rgba(0, 0, 255, .5)";
+        }
+        function focus_event(cls,text) {
+            focus_style(cls);
+            span_set(cls, "#aaa", text);
+        }
+    })()
+</script>
+</body>
+</html>
